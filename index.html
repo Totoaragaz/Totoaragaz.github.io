@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Transformer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="left-column">
+    <div class="content">
+        <div class="title">
+            <img width="60%" src="img/TransformerText.png" alt="Transformers Logo"/>
+        </div>
+        <img class="logo" src="img/Logo.png" alt="Transformers Logo"/>
+        <p>AUTOBOTS</p>
+        <button tabindex="1" id="rollOutButton" onclick="toggleTab()">ROLL OUT</button>
+    </div>
+</div>
+
+<div id="right-column">
+    <div id="optimus">
+        <img class="robot" src="img/OptimusPrime.jpg" alt="Optimus Prime"/>
+        <div class="title">
+            <span style="color: #004ea6">The</span> <span style="color:#cf0000"> Beginning</span>
+        </div>
+        <div class="text">
+            The reason I chose this word may have been obvious from the moment you have entered this web page. These robots that turn into
+            cars are, at least in my mind, the most iconic meaning of "Transformer". There are other meanings that we will look at later, but for now
+            let's focus on these robots.
+            <br><br>
+            I can't say I have ever been a huge fan of the Transformers as a franchise, but I have played with them as a child. After all, robots that turn into cars
+            are every little boy's dream. Ever since then, that has been the main meaning of "Transformer" to me, and I am sure I am not the only one.
+            <br><br>
+            It's not even just "Transformer". Derivatives like "Transform" immediately bring my mind to the robots too. Not to mention the other meanings of "Transformer",
+            like the electrical one, which I still don't exactly know what it does, most likely because the robots have overwritten it.
+            <br><br>
+            Still, the point of this exercise is to dive deep into all possible meanings of the word, so I will do my best to put the robots aside just this once.
+        </div>
+    </div>
+    <div id="bumblebee">
+        <img class="robot" src="img/Bumblebee.jpg" alt="Bumblebee"/>
+        <div class="title">
+            <span style="color: #000000">The</span><span style="color:#c1a900"> Investigation</span>
+        </div>
+        <div class="text">
+            Looking past the cool robots, first I must find out what a "Transformer" is in electrical circuits. Looking it up, I did not understand much,
+            but I do remember seeing one in a microwave at some point, and that if handled poorly can be very dangerous. Either way, it's called that because it
+            transfers or transforms electrical current. So we can already find a correlation between this and the robots, where a Transformer is something that transforms,
+            either itself or something else (what a shocker).
+            <br><br>
+            Then I wanted to figure out if a Transformer robot would use a microwave transformer to be powered. Unfortunately, I know nothing about things like
+            this, so I had to ask my friend ChatGPT. They said something along the lines of: "Maybe, but most likely no".
+            <br><br>
+            Asking other people "What is the first thing that comes to mind when you hear transformer?", I got exactly the answers I expected.
+            Everyone under the age of 50 said robots, everyone over said electrical. One exception struck my interest though, when a friend said "a transgender transformer (car robot)".
+            I have no idea where this came from, but it got me thinking about the transformation of changing genders. Can you call a transgender person a transformer?
+            Is it offensive?
+            <br><br>
+            We, as humans, change as we learn and grow. <span style="font-weight: bold">Does that make us all transformers? </span>
+        </div>
+    </div>
+    <div id="ratchet">
+        <img class="robot" src="img/Ratchet.png" alt="Ratchet"/>
+        <div class="title">
+            <span style="color: #404040">The</span><span style="color:#7c8800"> Conclusion</span>
+        </div>
+        <div class="text">
+            According to the dictionary, to transform is to "make a marked change in the form, nature, or appearance of". This means that whenever we change anything about
+            ourselves, we transform. This includes, changing your clothes or your hairstyle, learning something new, and even feeling an emotion like anger, as it changes your
+            nature, even if only temporarily or only by a little bit. <span style="font-weight: bold">That makes us all transformers </span>
+            <br><br>
+            This information must have shocked you, or at least made you feel something, which again has transformed you. We are, in my opinion, ever-changing transformers,
+            that can never return to their original form, but rather keep transforming into something else forever and ever. This gives us an endless number of forms, which,
+            in a way, is even cooler than the car robots.
+            <br><br>
+            <span style="font-size: 32px; font-weight: bold"> So go out there and transform into the best version of you! </span><br><span style="color: gray    ">(Or a truck if you can)</span>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    let tabIndex = -1
+
+    function toggleTab() {
+
+        const leftColumn = document.getElementById('left-column');
+        const rightColumn = document.getElementById('right-column');
+        const rollOutButton = document.getElementById('rollOutButton')
+
+        if (rightColumn.classList.contains('visible')) {
+            // Hide the right column
+            rightColumn.classList.remove('visible');
+            leftColumn.style.flex = '1';
+            rollOutButton.innerHTML="ROLL OUT"
+
+        } else {
+            // Show the right column
+            rightColumn.scrollTop = 0
+
+            rightColumn.classList.add('visible');
+            leftColumn.style.flex = '1';
+            rollOutButton.innerHTML="ROLL BACK IN"
+
+            tabIndex++;
+            if (tabIndex === 3){
+                tabIndex = 0;
+            }
+        }
+            switch (tabIndex){
+                case 0:
+                {
+                    document.getElementById("optimus").style.display = "inline-block"
+                    document.getElementById("ratchet").style.display = "none"
+                    break;
+                }
+
+                case 1:
+                {
+                    document.getElementById("optimus").style.display = "none"
+                    document.getElementById("bumblebee").style.display = "inline-block"
+                    break;
+                }
+
+                case 2:
+                {
+                    document.getElementById("bumblebee").style.display = "none"
+                    document.getElementById("ratchet").style.display = "inline-block"
+                    break;
+                }
+
+            }
+    }
+</script>
+</html>
